@@ -21,24 +21,31 @@ public class LinkedListMain
         //just add sequentially
         for(String item : items)
         {
-            myList.Add(item);        
-            myList2.AddFirst(item);
+            Node<String> newNode = new Node<>();
+            newNode.setValue(item);
+            myList.AddLast(newNode);        
+            //be careful. do not use newNode and add it to newNode2 because 
+            //the references are already created when you do addLast on myList.AddLast(newNode) line
+            Node<String> newNode2 = new Node<>();
+            newNode2.setValue(item);
+            myList2.AddFirst(newNode2);
+            
         }
         //order
         System.out.println("First Linked List - " + myList.toString());
         //reverse order
         System.out.println("Second Linked List - " + myList2.toString());
         //remove first item in 2nd linked list
-        System.out.println(myList2.RemoveFirst());
+        System.out.println(myList2.RemoveFirst().getValue());
         //remove last item in 2nd linked list
-        System.out.println(myList2.RemoveLast());
+        System.out.println(myList2.RemoveLast().getValue());
         //print new linked list
         System.out.println("Second Linked List - " + myList2.toString());
         System.out.println("Second Linked List Length - " + myList2.getLength());
         
         //remove last twice on first linked list
-        System.out.println(myList.RemoveLast());
-        System.out.println(myList.RemoveLast());
+        System.out.println(myList.RemoveLast().getValue());
+        System.out.println(myList.RemoveLast().getValue());
         //print new linked list
         System.out.println("First Linked List - " + myList.toString());
         System.out.println("First Linked List Length - " + myList.getLength());

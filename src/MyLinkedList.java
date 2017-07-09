@@ -35,51 +35,47 @@ public class MyLinkedList<T>
     
     
     //add on first of linkedlst
-    public void AddFirst(T newValue)
+    public void AddFirst(Node<T> newValue)
     {
-        Node<T> item = new Node<>();
-        item.setValue(newValue);
         if(length == 0)
         {
-            this.tail = item;
+            this.tail = newValue;
         }
         else
         {
-            item.setNext(this.head);
+            newValue.setNext(this.head);
         }
-        this.head = item;
+        this.head = newValue;
         length++;
     }
     
     //add on last
-    public void Add(T newValue)
+    public void AddLast(Node<T> newValue)
     {
-        Node<T> item = new Node<>();
-        item.setValue(newValue);
         if(length == 0)
         {
-            this.head = item;
+            this.head = newValue;
         }
         else
         {
-            this.tail.setNext(item);
+            this.tail.setNext(newValue);
         }
-        this.tail = item;
+        this.tail = newValue;
         length++;
     }
     
     //remove first
-    public T RemoveFirst()
+    public Node<T> RemoveFirst()
     {
         Node<T> returnValue = this.head;
         
         this.head = this.head.getNext();
         length--;
-        return returnValue.getValue();
+        return returnValue;
     }
     
     //remove last
-    public T RemoveLast()
+    public Node<T> RemoveLast()
     {
         Node<T> pointer = this.head;
         int ctr = 1;
@@ -101,7 +97,7 @@ public class MyLinkedList<T>
             ctr++;
         }
         length--;
-        return pointer.getValue();
+        return pointer;
     }
     
     
