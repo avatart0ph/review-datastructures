@@ -1,3 +1,7 @@
+
+import Models.Node;
+import MyLinkedList.MyLinkedList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -15,6 +19,7 @@ public class LinkedListMain
     {
         MyLinkedList<String> myList = new MyLinkedList<>();
         MyLinkedList<String> myList2 = new MyLinkedList<>();
+        MyLinkedList<String> myStack = new MyLinkedList<>();
        
         String[] items = {"6","5","7", "1", "3", "2", "1"};
 
@@ -30,7 +35,12 @@ public class LinkedListMain
             newNode2.setValue(item);
             myList2.AddFirst(newNode2);
             
+            Node<String> newNode3 = new Node<>();
+            newNode3.setValue(item);
+            myStack.AddLast(newNode3);
         }
+        
+        
         //order
         System.out.println("First Linked List - " + myList.toString());
         //reverse order
@@ -49,5 +59,12 @@ public class LinkedListMain
         //print new linked list
         System.out.println("First Linked List - " + myList.toString());
         System.out.println("First Linked List Length - " + myList.getLength());
+        
+        
+        //stack 
+        while(myStack.getLength() > 0)
+        {
+            System.out.println(myStack.RemoveLast().getValue());
+        }
     }
 }

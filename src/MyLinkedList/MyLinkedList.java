@@ -3,18 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package MyLinkedList;
+
+import Models.Node;
 
 /**
  *
- * @author denise
+ * @author Denise
  */
 public class MyLinkedList<T> 
 {
-    public MyLinkedList()
-    {
-        length = 0;
-
-    }
     private Node<T> head;
     
     public Node<T> getHead(){
@@ -78,23 +76,19 @@ public class MyLinkedList<T>
     public Node<T> RemoveLast()
     {
         Node<T> pointer = this.head;
-        int ctr = 1;
-        while(ctr <= this.length)
+        int ii = 1;
+        while(ii < this.length)
         {
-            //get last
-            if(ctr == this.length - 1)
-            {
-                //update tail
+            if(ii + 1 == this.length){ // if 2nd to the last
                 this.tail = pointer;
+                pointer = this.tail.getNext();
                 this.tail.setNext(null);
-                
             }
             if(pointer.getNext() != null){
                 pointer = pointer.getNext();
             }
+            ii++;
             
-            
-            ctr++;
         }
         length--;
         return pointer;
