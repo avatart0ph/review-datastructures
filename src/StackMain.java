@@ -1,4 +1,6 @@
 
+import MyStack.IStack;
+import MyStack.MyArrayStack;
 import MyStack.MyLinkedListStack;
 
 /*
@@ -15,13 +17,15 @@ public class StackMain
 {
     public static void main(String[] args)
     {
-        MyLinkedListStack<String> stacker = new MyLinkedListStack<>();
+        IStack<String> stacker = new MyLinkedListStack<>();
+        
         String[] items = {"6","5","7", "1", "3", "2", "1"};
-
+        IStack<String> stacker2 = new MyArrayStack<>(items[0].getClass(), items.length);
         
         for(String item : items)
         {
             stacker.Push(item);
+            stacker2.Push(item);
         }
         System.out.println(stacker.toString());
         System.out.println(stacker.Peek());
@@ -29,6 +33,22 @@ public class StackMain
         while(!stacker.isEmpty())
         {   
             System.out.println("Step: " +  ii + " > Value: " + stacker.Pop());
+            ii++;
+        }
+        try
+        {
+            stacker2.Push("should fail");
+            
+        }catch(Exception ex)
+        {
+            System.out.println("Failed " + ex.getMessage());
+        
+        }
+        System.out.println("Array implementation");
+        ii = 1;
+        while(!stacker2.isEmpty())
+        {   
+            System.out.println("Step: " +  ii + " > Value: " + stacker2.Pop());
             ii++;
         }
     }

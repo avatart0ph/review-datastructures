@@ -8,18 +8,20 @@ import Models.Node;
  *
  * @author Denise
  */
-public class MyLinkedListStack<T> 
+public class MyLinkedListStack<T> implements IStack 
 {
     private Node<T> head;
     private Node<T> tail;
         
     private int length;
     
+    @Override
     public int getLength(){
         return this.length;
     }
     
     
+    @Override
     public T Pop()
     {
         Node<T> pointer = this.head;
@@ -41,10 +43,11 @@ public class MyLinkedListStack<T>
         return pointer.getValue();
     }
     
-    public void Push(T newValue)
+    @Override
+    public void Push(Object newValue)
     {
         Node<T> newNode = new Node<>();
-        newNode.setValue(newValue);
+        newNode.setValue((T)newValue);
         
         if(length == 0)
         {
@@ -58,11 +61,13 @@ public class MyLinkedListStack<T>
         length++;
     }
     
+    @Override
     public T Peek()
     {
         return this.tail.getValue();
     }
     
+    @Override
     public boolean isEmpty()
     {
         return length == 0;
