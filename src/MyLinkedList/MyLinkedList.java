@@ -22,19 +22,19 @@
  */
 package MyLinkedList;
 
-import Models.Node;
+import Models.LinkedNode;
 
 public class MyLinkedList<T> 
 {
-    private Node<T> head;
+    private LinkedNode<T> head;
     
-    public Node<T> getHead(){
+    public LinkedNode<T> getHead(){
         return this.head;
     }
     
-    private Node<T> tail;
+    private LinkedNode<T> tail;
     
-    public Node<T> getTail(){
+    public LinkedNode<T> getTail(){
         return this.tail;
     }
     
@@ -46,7 +46,7 @@ public class MyLinkedList<T>
     
     
     //add on first of linkedlst
-    public void AddFirst(Node<T> newValue)
+    public void AddFirst(LinkedNode<T> newValue)
     {
         if(length == 0)
         {
@@ -61,7 +61,7 @@ public class MyLinkedList<T>
     }
     
     //add on last
-    public void AddLast(Node<T> newValue)
+    public void AddLast(LinkedNode<T> newValue)
     {
         if(length == 0)
         {
@@ -76,9 +76,9 @@ public class MyLinkedList<T>
     }
     
     //remove first
-    public Node<T> RemoveFirst()
+    public LinkedNode<T> RemoveFirst()
     {
-        Node<T> returnValue = this.head;
+        LinkedNode<T> returnValue = this.head;
         
         this.head = this.head.getNext();
         length--;
@@ -86,9 +86,9 @@ public class MyLinkedList<T>
     }
     
     //remove last
-    public Node<T> RemoveLast()
+    public LinkedNode<T> RemoveLast()
     {
-        Node<T> pointer = this.head;
+        LinkedNode<T> pointer = this.head;
         int ii = 1;
         while(ii < this.length)
         {
@@ -114,7 +114,7 @@ public class MyLinkedList<T>
     {
         String returnValue = "";
         
-        Node item = this.head;
+        LinkedNode item = this.head;
         while(item != null)
         {   
             returnValue += item.getValue().toString() + " ";            

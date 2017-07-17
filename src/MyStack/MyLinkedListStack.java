@@ -21,12 +21,12 @@
  * @author Denise Michelle del Bando
  */
 package MyStack;
-import Models.Node;
+import Models.LinkedNode;
 
 public class MyLinkedListStack<T> implements IStack 
 {
-    private Node<T> head;
-    private Node<T> tail;
+    private LinkedNode<T> head;
+    private LinkedNode<T> tail;
         
     private int length;
     
@@ -39,7 +39,7 @@ public class MyLinkedListStack<T> implements IStack
     @Override
     public T Pop()
     {
-        Node<T> pointer = this.head;
+        LinkedNode<T> pointer = this.head;
         int ii = 1;
         while(ii < this.length)
         {
@@ -61,7 +61,7 @@ public class MyLinkedListStack<T> implements IStack
     @Override
     public void Push(Object newValue)
     {
-        Node<T> newNode = new Node<>();
+        LinkedNode<T> newNode = new LinkedNode<>();
         newNode.setValue((T)newValue);
         
         if(length == 0)
@@ -95,7 +95,7 @@ public class MyLinkedListStack<T> implements IStack
     {
         String returnValue = "";
         
-        Node item = this.head;
+        LinkedNode item = this.head;
         while(item != null)
         {   
             returnValue += item.getValue().toString() + " ";            

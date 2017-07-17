@@ -20,7 +20,7 @@
  *
  * @author Denise Michelle del Bando
  */
-import Models.Node;
+import Models.LinkedNode;
 import MyLinkedList.MyLinkedList;
 
 public class LinkedListMain 
@@ -36,16 +36,16 @@ public class LinkedListMain
         //just add sequentially
         for(String item : items)
         {
-            Node<String> newNode = new Node<>();
+            LinkedNode<String> newNode = new LinkedNode<>();
             newNode.setValue(item);
             myList.AddLast(newNode);        
             //be careful. do not use newNode and add it to newNode2 because 
             //the references are already created when you do addLast on myList.AddLast(newNode) line
-            Node<String> newNode2 = new Node<>();
+            LinkedNode<String> newNode2 = new LinkedNode<>();
             newNode2.setValue(item);
             myList2.AddFirst(newNode2);
             
-            Node<String> newNode3 = new Node<>();
+            LinkedNode<String> newNode3 = new LinkedNode<>();
             newNode3.setValue(item);
             myStack.AddLast(newNode3);
         }

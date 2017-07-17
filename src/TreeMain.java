@@ -1,5 +1,9 @@
+
+import MyTrees.IBinarySearchTree;
+import MyTrees.MyBinarySearchTree;
+
 /*
- * Copyright (C) 2017 Denise Michelle del Bando
+ * Copyright (C) 2017 Denise
  *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,33 +22,24 @@
 
 /**
  *
- * @author Denise Michelle del Bando
+ * @author Denise
  */
-package Models;
-
-public class Node<T> 
+public class TreeMain 
 {
+    public static void main(String [] args)
+    {
+        int [] array = {3,2,7,1,5,8,9};
+        IBinarySearchTree bst = new MyBinarySearchTree();   
+        
+        for(int ii : array)
+        {
+            bst.Add((ii));
+        }
+        System.out.println(bst.GetRoot().getValue());
+        bst.ToString();
+        
+        
     
-    private T value;
-
-    public T getValue() {
-        return value;
     }
-    
-    public void setValue(T value) {
-        this.value = value;
-    }
-    
-    private Node next;
-    
-    public Node getNext(){
-        return next; 
-    }
-    
-    public void setNext(Node nextModel){
-        this.next = nextModel;
-    }
-    
-
     
 }
